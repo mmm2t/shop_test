@@ -1,0 +1,630 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+#root {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+/* #root, #app {
+  height: 100%;
+  width: 100%;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+} */
+
+.login-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  color: rgba(54, 61, 64, 0.445);
+}
+
+.login-button:hover {
+  color: rgba(32, 238, 238, 0.445);
+  transition: 0.5s;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.menu-list {
+  display: flex;
+  list-style-type: none;
+  /* justify-content: center; */
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list li {
+  padding: 10px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.menu-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search-bar {
+  position: absolute;
+  right: 0;
+  /* top: 50%; */
+  transform: translateY(-50%);
+  display: flex;
+  margin-right: 40px;
+}
+
+.search-box {
+  border: none;
+  border-bottom: 2px solid black;
+  padding: 5px;
+}
+
+.search-box :active,
+.search-box:focus {
+  outline: none;
+}
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  margin: 16px 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.product-image:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 200px;
+}
+
+.new {
+  color: #ff6b9d;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+}
+
+.card {
+  border: none !important;
+  background: transparent !important;
+  color: white;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.card:hover::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  color: white;
+}
+
+.card h5 {
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+}
+
+.card h6 {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.product-detail-container {
+  padding-top: 30px;
+}
+
+.product-detail-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  max-height: 500px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  margin: 16px 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.product-detail-image img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 16px;
+  height: 100%;
+  padding-top: 20px;
+}
+
+.product-detail-info h5 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.product-detail-info h6 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.product-detail-size {
+  margin-bottom: 20px;
+}
+
+
+.intro-page {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.intro-page h1 {
+  font-size: 36px;
+  margin-bottom: 80px;
+  text-align: center;
+  font-size: 48px;
+  padding-bottom: 80px;
+}
+
+.intro-page h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.intro-page p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.intro-page {
+  background: linear-gradient(135deg, #0f4c75 0%, #3282b8 30%, #0f4c75 60%, #1e3a8a 100%);
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(50, 130, 184, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(14, 116, 144, 0.3) 0%, transparent 50%),
+              linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%);
+  pointer-events: none;
+}
+
+.intro-content {
+  padding: 2rem;
+}
+
+.intro-buttons {
+  margin-top: 2rem;
+  padding-bottom: 80px;
+  padding-top: 40px;
+}
+
+.intro-buttons .btn {
+  margin: 0.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.intro-buttons .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* General page background - can be used across all pages */
+.page-background {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+/* For pages with navbar, we need to account for navbar height */
+.page-with-navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: calc(100vh - 200px); /* Adjust based on navbar height */
+  color: white;
+  padding-top: 20px;
+}
+
+/* Login page specific styling */
+.login-page {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .form-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.login-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-form .form-control:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+.login-form .form-label {
+  color: white;
+  font-weight: 600;
+}
+
+.login-form .form-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.login-form .form-check-label {
+  color: white;
+}
+
+/* Product cards styling for better visibility on gradient background */
+.product-card-overlay {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: 100%;
+  width: 100%;
+}
+
+.product-card-overlay:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Unified Background for Navbar and Product Pages - Ocean Theme */
+.unified-background {
+  background: linear-gradient(135deg, #0f4c75 0%, #3282b8 30%, #0f4c75 60%, #1e3a8a 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.unified-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(50, 130, 184, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(14, 116, 144, 0.3) 0%, transparent 50%),
+              linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%);
+  pointer-events: none;
+}
+
+/* Navbar uses the unified background - Ocean Theme */
+.navbar-gradient {
+  background: linear-gradient(135deg, #0f4c75 0%, #3282b8 30%, #0f4c75 60%, #1e3a8a 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(50, 130, 184, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(14, 116, 144, 0.3) 0%, transparent 50%),
+              linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%);
+  pointer-events: none;
+}
+
+.navbar-top {
+  position: relative;
+  z-index: 2;
+}
+
+/* Updated login button styling for gradient background */
+.navbar-gradient .login-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.navbar-gradient .login-button:hover {
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Updated logo container for gradient background */
+.navbar-gradient .logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.navbar-gradient .logo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.navbar-gradient .logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Updated menu styling for gradient background */
+.navbar-gradient .menu-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.navbar-gradient .menu-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-gradient .menu-list li {
+  padding: 12px 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-gradient .menu-list li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.navbar-gradient .menu-list li:hover::before {
+  left: 100%;
+}
+
+.navbar-gradient .menu-list li:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Updated search bar styling for gradient background */
+.navbar-gradient .search-bar {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  margin-right: 40px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 8px 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.navbar-gradient .search-bar:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-gradient .search-bar .fa-search {
+  color: rgba(255, 255, 255, 0.8);
+  margin-right: 10px;
+}
+
+.navbar-gradient .search-box {
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  outline: none;
+  font-size: 14px;
+  width: 200px;
+}
+
+.navbar-gradient .search-box::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar-gradient .search-box:focus {
+  outline: none;
+}
+
+/* Additional gradient effects for the body - Ocean Theme */
+body {
+  background: linear-gradient(135deg, #0f4c75 0%, #3282b8 30%, #0f4c75 60%, #1e3a8a 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Enhanced page backgrounds with additional gradients - Ocean Theme */
+.page-background {
+  background: linear-gradient(135deg, #0f4c75 0%, #3282b8 30%, #0f4c75 60%, #1e3a8a 100%);
+  min-height: 100vh;
+  color: white;
+  position: relative;
+}
+
+.page-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(50, 130, 184, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(14, 116, 144, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.page-with-navbar {
+  background: linear-gradient(135deg, #0f4c75 0%, #3282b8 30%, #0f4c75 60%, #1e3a8a 100%);
+  min-height: calc(100vh - 200px);
+  color: white;
+  padding-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-with-navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(50, 130, 184, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(14, 116, 144, 0.3) 0%, transparent 50%),
+              linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%);
+  pointer-events: none;
+}
+
+.login-page {
+  background: linear-gradient(135deg, #0f4c75 0%, #3282b8 30%, #0f4c75 60%, #1e3a8a 100%);
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.login-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(50, 130, 184, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(14, 116, 144, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
