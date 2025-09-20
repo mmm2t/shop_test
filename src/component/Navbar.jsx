@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faSearch, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
 
 const Navbar = ({authenticated, setAuthenticated}) => {
   const menuList = ["All", "Whales", "Seals", "Fishes", "Penguins", "Others"];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
 
   const navigate=useNavigate();
   const goToLogin = () => {
@@ -28,11 +30,23 @@ const Navbar = ({authenticated, setAuthenticated}) => {
     } else {
       navigate(`/products?category=${category}`);
     }
+    setIsMenuOpen(false); // Close mobile menu after selection
+  }
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
+  const toggleSearch = () => {
+    setIsSearchExpanded(!isSearchExpanded);
   }
 
   return (
     <div className="navbar-gradient">
       <div className="navbar-top">
+        <div className="hamburger-menu" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
+        </div>
         <div className="login-button" onClick={goToLogin}>
           <FontAwesomeIcon icon={faUser} />
           <div>{authenticated ? "Log out" : "Log in"}</div>
@@ -46,14 +60,25 @@ const Navbar = ({authenticated, setAuthenticated}) => {
         onClick={()=>navigate('/products')}/>
       </div>
       <div className="menu-container">
-        <ul className="menu-list">
+        <ul className={`menu-list ${isMenuOpen ? 'menu-open' : ''}`}>
           {menuList.map((menu) => (
             <li key={menu} onClick={()=>handleMenuClick(menu)}>{menu}</li>
           ))}
         </ul>
-        <div className="search-bar">
-          <FontAwesomeIcon icon={faSearch} />
-          <input type="text" className='search-box' placeholder="Search" onKeyPress={(event)=>search(event)}/>
+        <div className={`search-bar ${isSearchExpanded ? 'search-expanded' : ''}`}>
+          <FontAwesomeIcon 
+            icon={faSearch} 
+            className="search-icon"
+            onClick={toggleSearch}
+          />
+          <input 
+            type="text" 
+            className='search-box' 
+            placeholder="Search" 
+            onKeyPress={(event)=>search(event)}
+            onFocus={() => setIsSearchExpanded(true)}
+            onBlur={() => setIsSearchExpanded(false)}
+          />
         </div>
       </div>
     </div>

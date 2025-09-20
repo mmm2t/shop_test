@@ -11,7 +11,7 @@ const ProductAll = () => {
   const getProducts = async () => {
     let keyword = searchParams.get("q");
     let category = searchParams.get("category");
-    let url = `https://my-json-server.typicode.com/mmm2t/shop_test`;
+    let url = `https://my-json-server.typicode.com/mmm2t/shop_test/products`;
 
     let response = await fetch(url);
     let data = await response.json();
